@@ -8,6 +8,10 @@ DNS is fussy on most systems. Ubuntu, for example, runs a barebones version of
 DNSMasq already to serve it's DNS. So check that it is disabled before running it
 in this container because life is easier if you can run it on port 53.
 
+## Tunables
+
+**CONF_FILE**: Path to dnsmasq.conf file.
+
 ## Radial
 
 [Radial][radial] is a [Docker][docker] container topology strategy that

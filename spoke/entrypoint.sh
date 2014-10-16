@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Tunable settings
+CONF_FILE=${CONF_FILE:-/config/dnsmasq.conf}
+
 # Misc settings
 ERR_LOG=/log/$HOSTNAME/dns_stderr.log
 
@@ -18,5 +21,5 @@ fi
 
 echo Starting DNS server... | tee -a $ERR_LOG
 exec dnsmasq \
-    --conf-dir=/config \
+    --conf-file=$CONF_FILE \
     --no-daemon

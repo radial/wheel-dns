@@ -13,7 +13,7 @@ hub:
     environment:
         WHEEL_REPO_DNS: "https://github.com/radial/wheel-dns.git"
 dns:
-    image: "radial/radial-dns:latest"
+    image: "radial/dns:latest"
     volumes_from:
         - hub
     ports:

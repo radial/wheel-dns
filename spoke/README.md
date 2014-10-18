@@ -1,12 +1,27 @@
 ## DNSMasq
 
-This is a Radial Wheel repository for running dnsmasq as stand-alone DNS server.
+This is a Radial Wheel repository for running dnsmasq as a stand-alone DNS
+server.
 
 ## Setup
 
-DNS is fussy on most systems. Ubuntu, for example, runs a barebones version of
-DNSMasq already to serve it's DNS. So check that it is disabled before running it
-in this container because life is easier if you can run it on port 53.
+DNS is fussy on most systems. Ubuntu desktop, for example, runs a barebones
+version of DNSMasq already to serve it's DNS. So check that it is disabled
+before running it in this container because life is easier if you can run this
+service on port 53.  Ubuntu server I think has this disabled by default.
+
+I only really know Ubuntu, so this might not work for all systems. But here we
+go:
+
+  1. Regardless of your hosts setup, it should correctly serve the other
+     computers on your network out of the box (I think) on eth0 (or whatever).
+  2. But you should make sure your host can serve itself correctly anyway.
+    1. Make sure the only mention of dns nameservers in `/etc/resolv.conf` is
+       `127.0.0.1`.
+    2. On Ubuntu server, this is done by setting it in `/etc/network/interfaces`
+       with `dns-nameserver 127.0.0.1` under your ethernet device.
+    3. Either restart, which will update `/etc/resolv.conf`, or do `sudo ifdown
+       eth0 && sudo ifup eth0` which will update without a restart.
 
 ## Tunables
 

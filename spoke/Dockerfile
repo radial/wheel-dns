@@ -13,3 +13,6 @@ RUN             apt-get -q update && apt-get -qyV install \
 ENV             SPOKE_NAME dns
 
 COPY            /entrypoint.sh /entrypoint.sh
+
+EXPOSE          53
+EXPOSE          53/udp

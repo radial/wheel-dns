@@ -25,7 +25,7 @@ go:
 
 ## Tunables
 
-**CONF_FILE**: Path to dnsmasq.conf file.
+  - **$CONF_FILE**: [_"/config/dnsmasq"_] Path to dnsmasq.conf file.
 
 ## Radial
 
